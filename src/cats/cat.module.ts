@@ -8,7 +8,7 @@ import { Cat, CatSchema } from './schemas/cat.schema';
     imports: [
         MongooseModule.forFeature([
             { name: Cat.name, schema: CatSchema }
-        ])
+        ], 'cats')
     ],
     controllers: [
         CatsController
