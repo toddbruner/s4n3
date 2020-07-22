@@ -75,6 +75,7 @@ TypeError: mongoose_sequence_1.default is not a function
 
 Attempt four:
 
+ ```
  Found 0 errors. Watching for file changes.
 
 [Nest] 32041   - 07/22/2020, 11:37:00 AM   [NestFactory] Starting Nest application...
@@ -101,4 +102,4 @@ RangeError: Maximum call stack size exceeded
     at SequenceFactory.Sequence.getInstance (/Users/tbruner/dev/s4n3/node_modules/mongoose-sequence/lib/sequence.js:92:14)
     at Schema.plugin (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:1500:3)
 
-
+```
