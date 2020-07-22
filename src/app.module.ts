@@ -7,7 +7,11 @@ import { EntryModule } from './entry/entry.module';
 import { CatsController } from './cats/cats.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/user.module';
-import AutoIncrementFactory from 'mongoose-sequence';
+// attempts one, two, and three
+//import AutoIncrementFactory from 'mongoose-sequence';
+
+// attempt four
+import AutoIncrementFactory = require('mongoose-sequence');
 
 const mongoUri = 'mongodb://localhost/nest';
 
@@ -25,7 +29,7 @@ const mongoUri = 'mongodb://localhost/nest';
         // const sequence = require('mongoose-sequence')(connection);
         // this errors with: RangeError: Maximum call stack size exceeded
         
-        //attemp three:
+        //attempt three and four:
         const AutoIncrement = AutoIncrementFactory(connection);
         connection.plugin(AutoIncrement, {inc_field: 'id'});
         return connection;

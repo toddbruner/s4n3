@@ -35,7 +35,7 @@ const connection = await mongoose.createConnection('mongodb://...');
 const AutoIncrement = AutoIncrementFactory(connection);
 ```
 
-So my latest attempt errors with the following trace:
+So attempt three errors with the following trace:
 
 ```
 [4:08:24 PM] Found 0 errors. Watching for file changes.
@@ -72,5 +72,33 @@ TypeError: mongoose_sequence_1.default is not a function
     at AsyncAction.DelaySubscriber.dispatch (/Users/tbruner/dev/s4n3/node_modules/rxjs/internal/operators/delay.js:54:40)
     at AsyncAction._execute (/Users/tbruner/dev/s4n3/node_modules/rxjs/internal/scheduler/AsyncAction.js:71:18)
 ```
+
+Attempt four:
+
+ Found 0 errors. Watching for file changes.
+
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [NestFactory] Starting Nest application...
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [InstanceLoader] MongooseModule dependencies initialized +23ms
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [InstanceLoader] AuthModule dependencies initialized +0ms
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [InstanceLoader] AppModule dependencies initialized +0ms
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [InstanceLoader] MongooseCoreModule dependencies initialized +8ms
+[Nest] 32041   - 07/22/2020, 11:37:00 AM   [ExceptionHandler] Maximum call stack size exceeded +182ms
+RangeError: Maximum call stack size exceeded
+    at Set.has (<anonymous>)
+    at cloneObject (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/helpers/clone.js:109:27)
+    at clone (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/helpers/clone.js:53:16)
+    at new SchemaTypeOptions (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/options/SchemaTypeOptions.js:22:25)
+    at new SchemaStringOptions (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/options/SchemaStringOptions.js:18:1)
+    at SchemaString.SchemaType (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schematype.js:63:18)
+    at new SchemaString (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema/string.js:30:14)
+    at Schema.interpretAsType (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:993:10)
+    at Schema.path (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:680:27)
+    at Schema.add (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:519:14)
+    at new Schema (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:130:10)
+    at Mongoose.Schema (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:95:12)
+    at SequenceFactory.Sequence._createCounterModel (/Users/tbruner/dev/s4n3/node_modules/mongoose-sequence/lib/sequence.js:170:36)
+    at SequenceFactory.Sequence.enable (/Users/tbruner/dev/s4n3/node_modules/mongoose-sequence/lib/sequence.js:103:31)
+    at SequenceFactory.Sequence.getInstance (/Users/tbruner/dev/s4n3/node_modules/mongoose-sequence/lib/sequence.js:92:14)
+    at Schema.plugin (/Users/tbruner/dev/s4n3/node_modules/mongoose/lib/schema.js:1500:3)
 
 
